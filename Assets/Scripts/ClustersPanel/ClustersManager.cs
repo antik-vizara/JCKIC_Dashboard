@@ -9,8 +9,9 @@ public class ClustersManager : MonoBehaviour
 {
     public static ClustersManager Instance;
 
-    public string ClustersJSONPath = "D:/Projects/JCKIC_Data/ClustersData.json";
-    public ClusterData ClusterDataMain;
+    public string ClustersJSONPath = "E:/UnityProjects/JCKIC_Data/ClustersData.json";
+    [HideInInspector]
+    public ClusterData MainData;
 
     private void Awake()
     {
@@ -20,23 +21,51 @@ public class ClustersManager : MonoBehaviour
             return;
         }
         Instance = this;
+        ReadFromJSON();
+    }
+
+    public ClusterData GetTempData()
+    {
+        return new ClusterData(MainData);
     }
 
     public void SaveToJSON()
     {
-        string clustersData = JsonUtility.ToJson(ClusterDataMain);
+        string clustersData = JsonUtility.ToJson(MainData);
         File.WriteAllText(ClustersJSONPath, clustersData);
     }
 
     public void ReadFromJSON()
     {
         string clusterData = File.ReadAllText(ClustersJSONPath);
-        ClusterDataMain = JsonUtility.FromJson<ClusterData>(clusterData);
+        MainData = JsonUtility.FromJson<ClusterData>(clusterData);
     }
 }
 
 [System.Serializable]
 public class ClusterData
 {
-    public List<Cluster> Clusters = new List<Cluster>();
+    public List<Cluster> Clusters;
+    public List<MysticalBook> MysticalBooks;
+
+    public ClusterData()
+    {
+        this.Clusters = new List<Cluster>();
+        this.MysticalBooks = new List<MysticalBook>();
+    }
+
+    public ClusterData(ClusterData copy)
+    {
+        this.Clusters = new List<Cluster>();
+        for (int i = 0; i < copy.Clusters.Count; ++i)
+        {
+            this.Clusters.Add(new Cluster(copy.Clusters[i]));
+        }
+
+        this.MysticalBooks = new List<MysticalBook>();
+        for (int i = 0; i < copy.MysticalBooks.Count; ++i)
+        {
+            this.MysticalBooks.Add(new MysticalBook(copy.MysticalBooks[i]));
+        }
+    }
 }
