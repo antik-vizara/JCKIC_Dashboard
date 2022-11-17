@@ -46,12 +46,10 @@ public class ClustersManager : MonoBehaviour
 public class ClusterData
 {
     public List<Cluster> Clusters;
-    public List<MysticalBook> MysticalBooks;
 
     public ClusterData()
     {
         this.Clusters = new List<Cluster>();
-        this.MysticalBooks = new List<MysticalBook>();
     }
 
     public ClusterData(ClusterData copy)
@@ -60,12 +58,6 @@ public class ClusterData
         for (int i = 0; i < copy.Clusters.Count; ++i)
         {
             this.Clusters.Add(new Cluster(copy.Clusters[i]));
-        }
-
-        this.MysticalBooks = new List<MysticalBook>();
-        for (int i = 0; i < copy.MysticalBooks.Count; ++i)
-        {
-            this.MysticalBooks.Add(new MysticalBook(copy.MysticalBooks[i]));
         }
     }
 }
