@@ -23,7 +23,5 @@ public class MysticalBook
         this.Heading = copy.Heading;
         this.SubHeading = copy.SubHeading;
         this.BodyText = copy.BodyText;
-
-        Debug.Log(copy);
     }
 }

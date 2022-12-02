@@ -487,6 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924464ff51dd19148b3afc5bba3937bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArtifactCSVPath: C:/Users/MADDY/Downloads/Artifacts-Sheet1.csv
-  MysticalCSVPath: 
+  ClusterCSVPath: Assets/CSVData/SpaceData-Clusters.csv
+  ArtisansCSVPath: Assets/CSVData/SpaceData-Artisans.csv
+  ArtifactsCSVPath: Assets/CSVData/SpaceData-Artifacts.csv
+  MysticalCSVPath: Assets/CSVData/SpaceData-MysticalBook.csv
   JSONPath: E:/Antik/DashboardTest/ClustersData.json
