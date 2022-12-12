@@ -119,6 +119,7 @@ public class DirectJSONMaker : MonoBehaviour
         newArtisan.StoryHeadings[3] = line[10];
         newArtisan.StoryTexts[3] = line[11];
         newArtisan.ArtisanBio = line[12];
+        newArtisan.ArtisanShortBio = line[13];
 
         clusterData.Clusters[clusterIndex].Artisans.Add(newArtisan);
         clusterData.Clusters[clusterIndex].NumberOfArtisans++;
@@ -168,10 +169,14 @@ public class DirectJSONMaker : MonoBehaviour
             newArtefact.ArtefactPrice = -1;
         }
 
-        if (line.Count < 12)
+        if (line.Count == 12 && line[11] != "")
         {
-            Debug.Log(line[11]);
-            // newArtefact.ArtefactLink = line[11];
+            //Debug.Log(line[11]);
+            newArtefact.ArtefactLink = line[11];
+        }
+        else
+        {
+            newArtefact.ArtefactLink = "https://cdacae.myshopify.com";
         }
 
         clusterData.Clusters[clusterIndex].Artisans[artisanIndex].Artefacts.Add(newArtefact);
