@@ -6,6 +6,7 @@ public class Artisan
 {
     private static int StoryCount = 4;
     public string ArtisanID;
+    public string ArtisanBio;
     public string ArtisanName;
     public int NumberOfArtifacts;
     public List<Artefact> Artefacts;
@@ -15,6 +16,7 @@ public class Artisan
     public Artisan()
     {
         this.ArtisanID = "";
+        this.ArtisanBio = "";
         this.ArtisanName = "";
         this.NumberOfArtifacts = 0;
         this.Artefacts = new List<Artefact>();
@@ -25,6 +27,7 @@ public class Artisan
     public Artisan(Artisan copy)
     {
         this.ArtisanID = copy.ArtisanID;
+        this.ArtisanBio = copy.ArtisanBio;
         this.ArtisanName = copy.ArtisanName;
         this.NumberOfArtifacts = copy.NumberOfArtifacts;
         this.Artefacts = new List<Artefact>();

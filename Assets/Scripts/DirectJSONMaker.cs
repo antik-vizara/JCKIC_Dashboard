@@ -118,6 +118,7 @@ public class DirectJSONMaker : MonoBehaviour
         newArtisan.StoryTexts[2] = line[9];
         newArtisan.StoryHeadings[3] = line[10];
         newArtisan.StoryTexts[3] = line[11];
+        newArtisan.ArtisanBio = line[12];
 
         clusterData.Clusters[clusterIndex].Artisans.Add(newArtisan);
         clusterData.Clusters[clusterIndex].NumberOfArtisans++;
@@ -157,7 +158,6 @@ public class DirectJSONMaker : MonoBehaviour
         newArtefact.ArtefactMaterial = line[8];
         newArtefact.ArtefactWeight = line[9];
 
-        Debug.Log(newArtefact.ArtefactID + " " + line[10]);
         int price;
         if (int.TryParse(line[10], NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out price))
         {
@@ -168,7 +168,11 @@ public class DirectJSONMaker : MonoBehaviour
             newArtefact.ArtefactPrice = -1;
         }
 
-        // newArtefact.ArtefactLink = line[11];
+        if (line.Count < 12)
+        {
+            Debug.Log(line[11]);
+            // newArtefact.ArtefactLink = line[11];
+        }
 
         clusterData.Clusters[clusterIndex].Artisans[artisanIndex].Artefacts.Add(newArtefact);
         clusterData.Clusters[clusterIndex].Artisans[artisanIndex].NumberOfArtifacts++;
