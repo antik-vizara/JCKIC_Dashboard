@@ -30,6 +30,7 @@ public class DirectJSONMaker : MonoBehaviour
 
         string clusterStringData = JsonUtility.ToJson(clusterData);
         File.WriteAllText(JSONPath, clusterStringData);
+        Debug.Log("JSON created.");
     }
 
     void ReadLineTest(int line_index, List<string> line)
