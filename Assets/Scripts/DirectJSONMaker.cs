@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class DirectJSONMaker : MonoBehaviour
@@ -31,6 +32,7 @@ public class DirectJSONMaker : MonoBehaviour
         string clusterStringData = JsonUtility.ToJson(clusterData);
         File.WriteAllText(JSONPath, clusterStringData);
         Debug.Log("JSON created.");
+        EditorUtility.RevealInFinder("E:/Antik/DashboardTest/");
     }
 
     void ReadLineTest(int line_index, List<string> line)
@@ -177,7 +179,7 @@ public class DirectJSONMaker : MonoBehaviour
         }
         else
         {
-            newArtefact.ArtefactLink = "https://cdacae.myshopify.com";
+            newArtefact.ArtefactLink = "https://projectcrafts.myshopify.com";
         }
 
         clusterData.Clusters[clusterIndex].Artisans[artisanIndex].Artefacts.Add(newArtefact);
